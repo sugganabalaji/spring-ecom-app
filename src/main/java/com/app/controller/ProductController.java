@@ -1,6 +1,6 @@
 package com.app.controller;
 
-import com.app.controller.repository.service.ProductService;
+import com.app.service.ProductService;
 import com.app.model.Product;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -13,7 +13,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api")
-@CrossOrigin(origins = "http://localhost:5173")
+@CrossOrigin
 public class ProductController {
 
     @Autowired
@@ -93,4 +93,10 @@ public class ProductController {
         }
     }
 
+    @GetMapping("/products/search")
+    public ResponseEntity<List<Product>> searchProducts(@RequestParam String keyword) {
+        System.out.println("Searching with: " + keyword);
+        List<Product> products = service.search(keyword);
+        return new ResponseEntity<>(products, HttpStatus.OK);
+    }
 }

@@ -1,6 +1,6 @@
-package com.app.controller.repository.service;
+package com.app.service;
 
-import com.app.controller.repository.ProductRepository;
+import com.app.repository.ProductRepository;
 import com.app.model.Product;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -35,5 +35,9 @@ public class ProductService {
 
     public void delete(int id) {
         repository.deleteById(id);
+    }
+
+    public List<Product> search(String keyword) {
+        return repository.searchProducts(keyword);
     }
 }
