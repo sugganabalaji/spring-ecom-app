@@ -49,7 +49,15 @@ public class ProductController {
         } catch (IOException e) {
             return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
         }
+    }
 
+    @GetMapping("/product/{productId}/image")
+    public ResponseEntity<byte[]> getImage(@PathVariable int productId) {
+        Product product = service.findById(productId);
+        if (product == null) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        return new ResponseEntity<>(product.getImageData(), HttpStatus.OK);
     }
 
 
