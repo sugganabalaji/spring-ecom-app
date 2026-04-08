@@ -16,4 +16,8 @@ public class ProductService {
     public List<Product> findAll() {
         return repository.findAll();
     }
+
+    public Product findById(int id) {
+        return repository.findById(id).orElseGet(() -> null);
+    }
 }
