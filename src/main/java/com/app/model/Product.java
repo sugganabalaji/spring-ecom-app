@@ -28,6 +28,11 @@ public class Product {
     private boolean productAvailable;
     private int stockQuantity;
 
+    private String imageName;
+    private String imageType;
+    @Lob
+    private byte[] imageData;
+
     public Product(int id) {
         this.id = id;
     }

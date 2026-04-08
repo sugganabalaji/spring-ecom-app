@@ -1,0 +1,18 @@
+Postman steps to hit POST /api/product endpoint
+
+POST http://localhost:8080/api/product
+
+Body > formData
+
+key = product > Text
+[{"key":"product","value":"{\n    \"name\": \"Lenovo IdeaPad Slim 3i\",\n    \"description\": \"Lightweight 15-inch laptop powered by 13th Gen Intel Core processors, engineered for mobility and productivity.\",\n    \"brand\": \"Lenovo\",\n    \"price\": 50990,\n    \"category\": \"laptop\",\n    \"releaseDate\": \"01-03-2026\",\n    \"productAvailable\": true,\n    \"stockQuantity\": 25\n  }","type":"text","uuid":"667649a5-1d94-411f-8f0d-3ba2663ecc6c","enabled":true,"contentType":"application/json"}]
+contentType = application/json
+
+key = imageFile > File
+C:\Users\user\Downloads\LenovoIdeaPadSlim3i.jpg
+
+click send.
+201 created Response code
+
+
+
