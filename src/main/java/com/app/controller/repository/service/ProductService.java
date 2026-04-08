@@ -23,7 +23,7 @@ public class ProductService {
         return repository.findById(id).orElseGet(() -> null);
     }
 
-    public Product save(Product product, MultipartFile imageFile) throws IOException {
+    public Product saveOrUpdate(Product product, MultipartFile imageFile) throws IOException {
         if (imageFile == null) {
             return null;
         }
