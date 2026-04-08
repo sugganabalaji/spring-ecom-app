@@ -75,4 +75,22 @@ public class ProductController {
             return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
+    @DeleteMapping("/product/{id}")
+    public ResponseEntity<String> deleteProduct(@PathVariable int id) {
+        if (id <= 0) {
+            return new ResponseEntity<>("Invalid product ID", HttpStatus.BAD_REQUEST);
+        }
+        try {
+            Product product = service.findById(id);
+            if (product == null) {
+                return new ResponseEntity<>("Product not found", HttpStatus.NOT_FOUND);
+            }
+            service.delete(id);
+            return new ResponseEntity<>("Product deleted successfully", HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
 }
